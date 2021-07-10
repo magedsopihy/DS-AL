@@ -23,10 +23,11 @@ class newArray {
     return lastItem;
   }
 
+  //bear in mind that in js delete key word empty the element
+  //it is not removing it's position or decrease the length of the array
   delete(index) {
     const item = this.data[index];
-    this.shift(index);
-    this.length--;
+    this.shift(index); //this why deleting 
     return item;
   }
 
@@ -35,9 +36,10 @@ class newArray {
       this.data[i] = this.data[i + 1];
     }
     delete this.data[this.length - 1];
+    this.length--;
   }
 
-  //implemting the count method which in not js but in python
+  //implemting the count method which is not in js but in python
   count(item) {
     let counter = 0;
 
@@ -49,15 +51,3 @@ class newArray {
     return counter;
   }
 }
-
-// const myArray = new newArray();
-// myArray.push(5);
-// myArray.push(5);
-// myArray.push(6);
-// myArray.push(6);
-// myArray.pop();
-// const yourArray = new newArray();
-// yourArray.push(5);
-// yourArray.push(5);
-
-// console.log(yourArray.count(5));
