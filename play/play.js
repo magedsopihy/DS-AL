@@ -1,27 +1,20 @@
-const str = "06:40:03PM";
-const hours = parseInt(str.substr(0, 2));
+const arr = [2,1,1,2,3,5,1,2];
 
-console.log(convertTOMilitary(str));
+console.log(recurringChar(arr));
 
-function convertTOMilitary(str) {
-  return str.slice(-2) === "AM" ? convertAM(str) : convertPM(str);
-}
-
-function convertAM(str) {
-  str = str.replace("AM", "");
-  const hours = str.slice(0, 2);
-  if (hours == "12") {
-    return str.replace(hours, "00");
-  }
-  return str;
-}
-
-function convertPM(str) {
-  str = str.replace("PM", "");
-  const hours = str.slice(0, 2);
-  if (hours == "12") {
-    return str;
+function recurringChar(arr){
+  if(!arr.length || arr.length < 2){
+    return;
   }
 
-  return str.replace(hours, parseInt(hours) + 12);
+  const chars = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    console.log(chars.keys())
+    
+       if(chars.has(arr[i])){
+         return arr[i];
+       }
+       chars.set(arr[i], arr[i]);
+  }
+  return 'no curring charachters';
 }
